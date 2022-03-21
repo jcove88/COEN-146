@@ -1,0 +1,60 @@
+Jillian Coveney
+COEN 146L
+Lab 2 observations
+Thursday 5:15
+
+-------------------------------------
+Step1. 
+
+netstat - this command showed a list of sockets the computer had their current state (LISTENING or CONNECTED). It also reveals the protocol used for the sockets such as unix, TDP or UDP. It also shows their local and foreign addresses. You can also use -r to access all the routing tables. It’s a useful command for checking what internet connections are in your network.
+
+ifconfig - the ifconfig command allows you to view all of the network interfaces. You can also add other options to the command that allows you to configure them or set the IP address of a network interface. 
+
+hostname - The hostname command is used to output the host of the system. I am using the terminal on my mac that is connected to the school’s remote desktop, so the hostname was linux0621
+
+ping - the ping command is used in combination with an IP address or website. It will send packets to this destination address. Using different options can allow you to set the number of pings, size of packets sent, and the ping interval. Doing ctrl-c will show you statistics about the packets sent/received, the time it took, and packet loss. 
+
+traceroute -the traceroute command needs to be used with an address, similar to the ping command. When using the traceroute command with google it gave me information about the route that a packet takes to get to its destination. This includes which servers it goes through and the time it took to get there. 
+
+telnet -You need to use the telnet command with a 80 -http port. When I connected to gaia.cs.umass.edu 80 there was a successful connection. The command is used to set up a remote connection to a server
+
+host/dig - These commands are also used with an address. When I used the commands with google.com I found the DNS of the address. You can also use these commands to troubleshoot with the DNS.
+
+route - This command shows a routing table. By using additional options you can change the routing tables and set up routes to specific servers.
+
+arp - The arp command used with -a deisplays the current ARP cache and the connections’ IP address. You can also modify the cache
+-------------------------------------
+Step 2.
+
+I sent 5 packets for each ping. 
+
+USA: google.com
+32-bytes: 0% packet loss, 37.793ms avg RTT
+1048-bytes: 0% packet loss, 37.676ms avg RTT
+
+Europe: visiteurope.com
+32-bytes: 0% packet loss, 151.672ms avg RTT
+1048-bytes: 0% packet loss, 155.839ms avg RTT
+
+China: baidu.com
+32-bytes: 0% packet loss, 210.389ms avg RTT
+1048-bytes: 0% packet loss, 218.924ms avg RTT
+
+The RTT for each address makes sense given that I am located in the US and the time it takes to send/receive packets to a US address is very short (37ms RTT). The size of the packet appears to have a very little effect on the time. When sending packets overseas to Europe it took more time (151ms RTT). The packet size also had a more noticable effect on the RTT. Finally, sending packets to Asia took the longest because it had the furthest to travel. The larger packet size had a larger impact on the RTT. 
+-------------------------------------
+Step 4.
+
+I connected to gaia.cs.umass.edu 80 using the telnet command. I then sent the get request and host command.
+
+After hitting enter twice, the website was displayed in an HTML format and appeared as https://gaia.cs.umass.edu/kurose_ross/interactive/index.php
+
+Then the connection was closed.
+
+1. the name of the file retreived is /kurose_rose/interactive/index.php
+2. the client is running on HTTP version 1.1
+3. The format of text and images is in HTML format
+
+Step 5. 
+
+I was able to use telnet for google.com, visiteurope.com, and baidu.com to connect using port 80. When using port 3389 or other ports, it would try to connect to the address and tried other addresses, but after several minutes of waiting there was no connecition. 
+
